@@ -1,3 +1,4 @@
+import { DataManipulationService } from './services/data-manipulation.service';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,12 +18,14 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { TopNavComponent } from './top-nav/top-nav.component';
 import { MapComponent } from './components/map/map.component';
+import { DataManipulationComponent } from './components/data-manipulation/data-manipulation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavComponent,
-    MapComponent
+    MapComponent,
+    DataManipulationComponent
   ],
   imports: [
     //MatToolbarModule,
@@ -36,7 +39,8 @@ import { MapComponent } from './components/map/map.component';
   ],
   providers: [
     AuthService,
-    UserService
+    UserService,
+    DataManipulationService
   ],
   bootstrap: [AppComponent]
 })
