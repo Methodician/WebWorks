@@ -1,3 +1,5 @@
+import { AuthInfo } from './../services/auth/auth-info';
+import { AuthService } from './../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopNavComponent implements OnInit {
 
-  constructor() { }
+  user: AuthInfo;
+  constructor(
+    private authSvc: AuthService
+  ) { }
 
   ngOnInit() {
+    this.authSvc.authInfo$.subscribe(info => this.user = info);
+  }
+
+  logout() {
+    this.authSvc.logout();
   }
 
 }

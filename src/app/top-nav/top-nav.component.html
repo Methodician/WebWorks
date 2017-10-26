@@ -2,3 +2,12 @@
   <span>WebWorks TST</span>
   <span>login</span>
 </mat-toolbar> -->
+<ul>
+  <li>
+    <a routerLink="home">WebWorks Home</a> |
+    <a routerLink="register">Register</a> |
+    <a routerLink="login">Login</a> |
+    <a (click)="logout()">logout</a>
+  </li>
+</ul>
+Hello: {{ user | json }}

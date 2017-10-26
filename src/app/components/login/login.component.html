@@ -1,0 +1,15 @@
+<form autocomplete="off" novalidate [formGroup]="form">
+  <fieldset>
+    <h1>Login:</h1>
+    <div>
+      <input type="email" name="email" formControlName="email">
+      <div *ngIf="isErrorVisible('email','required')">We'll need your e-mail address, please.</div>
+      <div *ngIf="isErrorVisible('email','validEmail')">Please enter a valid e-mail address.</div>
+    </div>
+    <div>
+      <input type="password" name="password" formControlName="password">
+      <div *ngIf="isErrorVisible('password','required')">A password is required.</div>
+    </div>
+  </fieldset>
+  <button (click)="login()" [disabled]="!formValid()">Login</button>
+</form>

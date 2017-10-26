@@ -1,8 +1,9 @@
-import { UserService } from './services/user.service';
-import { AuthService } from './services/auth.service';
+import { AppRoutingModule } from './app-routing.module';
+//import { UserService } from './services/user/user.service';
+import { AuthService } from './services/auth/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 //import { MatButtonModule, MatInputModule, MatToolbarModule, MatIconModule, MatMenuModule, MatProgressSpinnerModule, MatCardModule, MatChipsModule, MatSidenavModule, MatTooltipModule, MatTabsModule } from '@angular/material';
@@ -17,18 +18,24 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { TopNavComponent } from './top-nav/top-nav.component';
 import { MapComponent } from './components/map/map.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopNavComponent,
-    MapComponent
+    MapComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     //MatToolbarModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
+    AppRoutingModule,
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyC1a8GbePUKUQqhFtXKMG3hQpRGhaa3Liw' }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
@@ -36,7 +43,7 @@ import { MapComponent } from './components/map/map.component';
   ],
   providers: [
     AuthService,
-    UserService
+    //UserService
   ],
   bootstrap: [AppComponent]
 })
