@@ -11,6 +11,7 @@ form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 
 	h1 {
 		font-size: 30px;
@@ -34,9 +35,11 @@ form {
 			}
 		}
 
-		button {
-			width: 50%;
-		}
+	}
+	button {
+		width: 50%;
+		background-color: #4A5A63;
+		color: white;
 	}
 }
 
