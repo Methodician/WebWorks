@@ -1,6 +1,6 @@
 <!-- REGISTER COMPONENT CONTAINER -->
 <div class="register-container">
-<!-- FORM -->
+  <!-- FORM -->
   <form autocomplete="off" novalidate [formGroup]="form">
     <!-- HEADER -->
     <h1>Register:</h1>
@@ -23,8 +23,22 @@
         <mat-error *ngIf="isErrorVisible('confirmPass','required')">Please confirm your password.</mat-error>
         <mat-error *ngIf="!isPasswordMatch() && isControlDirty('confirmPass')">Oops! Your password does not match yet.</mat-error>
       </mat-form-field>
+      <!-- NAME FIELD -->
+      <mat-form-field color="accent">
+        <input matInput placeholder="Full Name" type="text" name="username" formControlName="username">
+        <mat-error *ngIf="isErrorVisible('username','required')">Please enter your full name.</mat-error>
+      </mat-form-field>
+      <!-- COMPANY SELECTION -->
+      <mat-form-field color="accent">
+        <mat-select name="company" placeholder="Company" formControllName="company" (change)="selectCo($event.value)">
+          <mat-option *ngFor="let co of companies" [value]="co">{{ co.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
     </fieldset>
     <!-- REGISER BUTTON -->
     <button mat-raised-button color="primary" (click)="register()" [disabled]="!isPasswordMatch() || !formValid()">Register</button>
   </form>
+  <pre>
+    {{ form.value | json }}
+  </pre>
 </div>

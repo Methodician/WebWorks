@@ -6,19 +6,20 @@
   <span class="flex-spacer"></span>
   <!-- BUTTONS FOR NAV -->
   <div class="nav-btns">
+    <span *ngIf="auth.isLoggedIn()">{{ user?.username }} - {{ userCompany?.name }}</span>
     <button mat-button routerLink="home">
       <span>Home</span>
       <mat-icon>home</mat-icon>
     </button>
-    <button mat-button routerLink="register">
-      <span>Register</span>  
+    <button *ngIf="!auth.isLoggedIn()" mat-button routerLink="register">
+      <span>Register</span>
       <mat-icon>assessment</mat-icon>
     </button>
-    <button mat-button routerLink="login">
+    <button *ngIf="!auth.isLoggedIn()" mat-button routerLink="login">
       <span>Login</span>
       <mat-icon>person</mat-icon>
     </button>
-    <button mat-button (click)="logout()">
+    <button *ngIf="auth.isLoggedIn()" mat-button (click)="logout()">
       <span>Logout</span>
       <mat-icon>exit_to_app</mat-icon>
     </button>
@@ -35,7 +36,7 @@
       <mat-icon>home</mat-icon>
     </button>
     <button mat-menu-item routerLink="register">
-      <span>Register</span>  
+      <span>Register</span>
       <mat-icon>assessment</mat-icon>
     </button>
     <button mat-menu-item routerLink="login">
@@ -70,7 +71,5 @@
       </button>
     </div>
     <!-- HELLO USER THING -->
-    <h4>Hello: {{ user | json }}</h4>
   </mat-toolbar-row>
 </mat-toolbar>
-

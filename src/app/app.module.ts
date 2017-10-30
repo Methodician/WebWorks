@@ -1,6 +1,7 @@
+import { DataImportService } from './services/data/data-import.service';
 import { AppRoutingModule } from './app-routing.module';
-//import { UserService } from './services/user/user.service';
 import { AuthService } from './services/auth/auth.service';
+import { DataManipulationService } from './services/data-manipulation.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -9,9 +10,9 @@ import { HttpModule } from '@angular/http';
 // Angular Material stuff
 
 // animation support for  angular material components
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import line for all of the angular components
-import {MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, MatInputModule, MatFormFieldModule} from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, MatInputModule, MatFormFieldModule, MatSelectModule } from '@angular/material';
 
 
 
@@ -26,6 +27,9 @@ import { TopNavComponent } from './top-nav/top-nav.component';
 import { MapComponent } from './components/map/map.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { UserService } from "./services/user/user.service";
+import { DataImportComponent } from './components/data-import/data-import.component';
+import { DataManipulationComponent } from './components/data-manipulation/data-manipulation.component';
 
 @NgModule({
   declarations: [
@@ -33,10 +37,11 @@ import { LoginComponent } from './components/login/login.component';
     TopNavComponent,
     MapComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    DataImportComponent,
+    DataManipulationComponent
   ],
   imports: [
-    //MatToolbarModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -49,16 +54,19 @@ import { LoginComponent } from './components/login/login.component';
     //  AngularMaterial imports:
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatButtonModule, 
-    MatMenuModule, 
+    MatButtonModule,
+    MatMenuModule,
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
+    MatSelectModule
 
   ],
   providers: [
     AuthService,
-    //UserService
+    UserService,
+    DataImportService,
+    DataManipulationService
   ],
   bootstrap: [AppComponent]
 })
