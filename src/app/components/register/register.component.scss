@@ -1,0 +1,58 @@
+.register-container {
+	height: calc(100vh - 128px);
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+form {
+	width: 600px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	h1 {
+		font-size: 30px;
+		color: white;
+		text-align: center;
+	}
+
+	.form-container {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		// justify-content: center;
+		// align-items: center;
+
+		mat-form-field {
+			width: 100%;
+			margin: 20px 0px;
+			input {
+				color: white;
+			}
+		}
+
+		button {
+			width: 50%;
+		}
+	}
+}
+
+
+// media queries
+
+@media only screen and (max-width: 648px) {
+
+		form {
+			width: 325px;
+		}
+}
+
+@media only screen and (max-width: 375px) {
+	
+			form {
+				width: 275px;
+			}
+	}

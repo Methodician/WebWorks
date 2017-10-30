@@ -6,8 +6,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-//import { MatButtonModule, MatInputModule, MatToolbarModule, MatIconModule, MatMenuModule, MatProgressSpinnerModule, MatCardModule, MatChipsModule, MatSidenavModule, MatTooltipModule, MatTabsModule } from '@angular/material';
-//import { MatToolbarModule } from '@angular/material';
+// Angular Material stuff
+
+// animation support for  angular material components
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+// import line for all of the angular components
+import {MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, MatInputModule, MatFormFieldModule} from '@angular/material';
+
+
 
 
 import { AppComponent } from './app.component';
@@ -39,7 +45,16 @@ import { LoginComponent } from './components/login/login.component';
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyC1a8GbePUKUQqhFtXKMG3hQpRGhaa3Liw' }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    //  AngularMaterial imports:
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule, 
+    MatMenuModule, 
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+
   ],
   providers: [
     AuthService,

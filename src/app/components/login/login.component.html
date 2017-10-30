@@ -1,15 +1,24 @@
-<form autocomplete="off" novalidate [formGroup]="form">
-  <fieldset>
+<!-- LOGIN COMPONENT CONTAINER -->
+<div class="login-container">
+<!-- FORM -->
+  <form autocomplete="off" novalidate [formGroup]="form">
+    <!-- HEADER -->
     <h1>Login:</h1>
-    <div>
-      <input type="email" name="email" formControlName="email">
-      <div *ngIf="isErrorVisible('email','required')">We'll need your e-mail address, please.</div>
-      <div *ngIf="isErrorVisible('email','validEmail')">Please enter a valid e-mail address.</div>
-    </div>
-    <div>
-      <input type="password" name="password" formControlName="password">
-      <div *ngIf="isErrorVisible('password','required')">A password is required.</div>
-    </div>
-  </fieldset>
-  <button (click)="login()" [disabled]="!formValid()">Login</button>
-</form>
+    <!-- FORM-CONTAINER -->
+    <fieldset class="form-container">
+      <!-- EMAIL INPUT FIELD -->
+      <mat-form-field color="accent">
+        <input matInput placeholder="Email" name="email" formControlName="email" type="email">
+        <mat-error *ngIf="isErrorVisible('email','required')">We'll need your e-mail address, please.</mat-error>
+        <mat-error *ngIf="isErrorVisible('email','validEmail')">Please enter a valid e-mail address.</mat-error>
+      </mat-form-field>
+      <!-- PASSWORD INPUT FIELD -->
+      <mat-form-field color="accent">
+        <input matInput placeholder="Password" type="password" name="password" formControlName="password">
+        <mat-error *ngIf="isErrorVisible('password','required')">A password is required.</mat-error>
+      </mat-form-field>
+    </fieldset>
+    <!-- REGISER BUTTON -->
+    <button mat-raised-button color="primary" (click)="login()" [disabled]="!formValid()">Register</button>
+  </form>
+</div>

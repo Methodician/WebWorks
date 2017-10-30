@@ -1,13 +1,76 @@
-<!-- <mat-toolbar>
-  <span>WebWorks TST</span>
-  <span>login</span>
-</mat-toolbar> -->
-<ul>
-  <li>
-    <a routerLink="home">WebWorks Home</a> |
-    <a routerLink="register">Register</a> |
-    <a routerLink="login">Login</a> |
-    <a (click)="logout()">logout</a>
-  </li>
-</ul>
-Hello: {{ user | json }}
+<!-- START OF NAV BAR -->
+<mat-toolbar color="primary" class="main-nav">
+  <!-- NAV BRAND -->
+  <span class="brand" routerLink="home">WebWorks TST</span>
+  <!-- SPACER TO SPACE CONTENT -->
+  <span class="flex-spacer"></span>
+  <!-- BUTTONS FOR NAV -->
+  <div class="nav-btns">
+    <button mat-button routerLink="home">
+      <span>Home</span>
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-button routerLink="register">
+      <span>Register</span>  
+      <mat-icon>assessment</mat-icon>
+    </button>
+    <button mat-button routerLink="login">
+      <span>Login</span>
+      <mat-icon>person</mat-icon>
+    </button>
+    <button mat-button (click)="logout()">
+      <span>Logout</span>
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </div>
+
+  <!-- DROPDOWN BUTTON FOR MOBILE -->
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="dropdown-btn">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <!-- DROPDOWN MENU FOR MOBILE -->
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="home">
+      <span class="test">Home</span>
+      <mat-icon>home</mat-icon>
+    </button>
+    <button mat-menu-item routerLink="register">
+      <span>Register</span>  
+      <mat-icon>assessment</mat-icon>
+    </button>
+    <button mat-menu-item routerLink="login">
+      <span>Login</span>
+      <mat-icon>person</mat-icon>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <span>Logout</span>
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-menu>
+
+  <!-- SECOND TOOLBAR ROW TO HOLD FUTURE UTILITY FUNCTIONS -->
+  <mat-toolbar-row class="utility-bar">
+    <!-- DIV THAT HOLDS UTILITY BUTTONS -->
+    <div class="utility-btns">
+      <button mat-raised-button>
+        <span>Map</span>
+        <mat-icon>map</mat-icon>
+      </button>
+      <button mat-raised-button>
+        <span>Import</span>
+        <mat-icon>import_export</mat-icon>
+      </button>
+      <button mat-raised-button>
+        <span>Share</span>
+        <mat-icon>share</mat-icon>
+      </button>
+      <button mat-raised-button>
+        <span>Locate</span>
+        <mat-icon>my_location</mat-icon>
+      </button>
+    </div>
+    <!-- HELLO USER THING -->
+    <h4>Hello: {{ user | json }}</h4>
+  </mat-toolbar-row>
+</mat-toolbar>
+
