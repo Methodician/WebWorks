@@ -9,9 +9,9 @@ import { HttpModule } from '@angular/http';
 // Angular Material stuff
 
 // animation support for  angular material components
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import line for all of the angular components
-import {MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, MatInputModule, MatFormFieldModule} from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, MatInputModule, MatFormFieldModule } from '@angular/material';
 
 
 
@@ -26,6 +26,7 @@ import { TopNavComponent } from './top-nav/top-nav.component';
 import { MapComponent } from './components/map/map.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { UserService } from "./services/user/user.service";
 
 @NgModule({
   declarations: [
@@ -49,8 +50,8 @@ import { LoginComponent } from './components/login/login.component';
     //  AngularMaterial imports:
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatButtonModule, 
-    MatMenuModule, 
+    MatButtonModule,
+    MatMenuModule,
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
@@ -58,7 +59,7 @@ import { LoginComponent } from './components/login/login.component';
   ],
   providers: [
     AuthService,
-    //UserService
+    UserService
   ],
   bootstrap: [AppComponent]
 })
