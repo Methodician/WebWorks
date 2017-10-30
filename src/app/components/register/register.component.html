@@ -36,7 +36,7 @@
       </mat-form-field>
     </fieldset>
     <!-- REGISER BUTTON -->
-    <button mat-raised-button color="primary" (click)="register()" [disabled]="!isPasswordMatch() || !formValid()">Register</button>
+    <button mat-raised-button (click)="register()" [disabled]="!isPasswordMatch() || !formValid()">Register</button>
   </form>
   <!-- <pre>
     {{ form.value | json }}
