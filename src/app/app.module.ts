@@ -46,6 +46,7 @@ import { LoginComponent } from './components/login/login.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    //  AngularMaterial imports:
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule, 
