@@ -11,7 +11,7 @@ import { HttpModule } from '@angular/http';
 // animation support for  angular material components
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // import line for all of the angular components
-import {MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule} from '@angular/material';
+import {MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, MatInputModule, MatFormFieldModule} from '@angular/material';
 
 
 
@@ -51,6 +51,9 @@ import { LoginComponent } from './components/login/login.component';
     MatButtonModule, 
     MatMenuModule, 
     MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+
   ],
   providers: [
     AuthService,
