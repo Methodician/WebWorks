@@ -1,3 +1,4 @@
+import { DataImportService } from './services/data/data-import.service';
 import { AppRoutingModule } from './app-routing.module';
 //import { UserService } from './services/user/user.service';
 import { AuthService } from './services/auth/auth.service';
@@ -27,6 +28,7 @@ import { MapComponent } from './components/map/map.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserService } from "./services/user/user.service";
+import { DataImportComponent } from './components/data-import/data-import.component';
 
 @NgModule({
   declarations: [
@@ -34,10 +36,10 @@ import { UserService } from "./services/user/user.service";
     TopNavComponent,
     MapComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    DataImportComponent
   ],
   imports: [
-    //MatToolbarModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -59,7 +61,8 @@ import { UserService } from "./services/user/user.service";
   ],
   providers: [
     AuthService,
-    UserService
+    UserService,
+    DataImportService
   ],
   bootstrap: [AppComponent]
 })
