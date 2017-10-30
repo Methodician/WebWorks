@@ -1,3 +1,4 @@
+import { UserService } from './../user/user.service';
 import * as firebase from 'firebase';
 import { AuthInfo } from './auth-info';
 import { Injectable } from '@angular/core';
@@ -11,18 +12,32 @@ export class AuthService {
   static UNKNOWN_USER = new AuthInfo(null);
   user$: BehaviorSubject<firebase.User> = new BehaviorSubject<firebase.User>(null);
   authInfo$: BehaviorSubject<AuthInfo> = new BehaviorSubject<AuthInfo>(AuthService.UNKNOWN_USER);
+  accessLevel$: BehaviorSubject<number> = new BehaviorSubject<number>(null);
 
   constructor(
     private afAuth: AngularFireAuth,
-    private router: Router
+    private router: Router,
+    private userSvc: UserService
   ) {
     this.afAuth.authState.subscribe(info => {
       if (info) {
         this.user$.next(info);
         const authInfo = new AuthInfo(info.uid, info.emailVerified);
         this.authInfo$.next(authInfo);
+        this.userSvc.uid$.next(info.uid);
+        this.getAccessLevel(info.uid).valueChanges().subscribe((levelInfo: any) => this.accessLevel$.next(levelInfo.level));
       }
     });
+  }
+
+  getAccessLevel(uid: string) {
+    let userRef = this.userSvc.getUserById(uid);
+    return userRef.collection('userData').doc('accessLevel');
+  }
+
+  setAccessLevel(uid: string, level: number) {
+    let levelRef = this.getAccessLevel(uid);
+    return levelRef.set({ level: level });
   }
 
   register(email, password) {

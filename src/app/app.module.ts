@@ -12,7 +12,7 @@ import { HttpModule } from '@angular/http';
 // animation support for  angular material components
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import line for all of the angular components
-import { MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, MatInputModule, MatFormFieldModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, MatInputModule, MatFormFieldModule, MatSelectModule } from '@angular/material';
 
 
 
@@ -59,6 +59,7 @@ import { DataManipulationComponent } from './components/data-manipulation/data-m
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
+    MatSelectModule
 
   ],
   providers: [

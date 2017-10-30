@@ -1,3 +1,4 @@
+import { UserService } from './../services/user/user.service';
 import { AuthInfo } from './../services/auth/auth-info';
 import { AuthService } from './../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,13 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopNavComponent implements OnInit {
 
-  user: AuthInfo;
+  auth: AuthInfo;
+  user: any;
+  userCompany: any;
+  //accessLevel: number;
   constructor(
-    private authSvc: AuthService
+    private authSvc: AuthService,
+    private userSvc: UserService
   ) { }
 
   ngOnInit() {
-    this.authSvc.authInfo$.subscribe(info => this.user = info);
+    this.authSvc.authInfo$.subscribe(info =>
+      this.auth = info
+    );
+    this.userSvc.userInfo$.subscribe(info =>
+      this.user = info
+    );
+    this.userSvc.userCompany$.subscribe(info =>
+      this.userCompany = info
+    );
+    //this.authSvc.accessLevel$.subscribe(level => this.accessLevel = level);
+
   }
 
   logout() {
