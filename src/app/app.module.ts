@@ -1,7 +1,7 @@
 import { DataImportService } from './services/data/data-import.service';
 import { AppRoutingModule } from './app-routing.module';
-//import { UserService } from './services/user/user.service';
 import { AuthService } from './services/auth/auth.service';
+import { DataManipulationService } from './services/data-manipulation.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -29,6 +29,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserService } from "./services/user/user.service";
 import { DataImportComponent } from './components/data-import/data-import.component';
+import { DataManipulationComponent } from './components/data-manipulation/data-manipulation.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { DataImportComponent } from './components/data-import/data-import.compon
     MapComponent,
     RegisterComponent,
     LoginComponent,
-    DataImportComponent
+    DataImportComponent,
+    DataManipulationComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import { DataImportComponent } from './components/data-import/data-import.compon
   providers: [
     AuthService,
     UserService,
-    DataImportService
+    DataImportService,
+    DataManipulationService
   ],
   bootstrap: [AppComponent]
 })
