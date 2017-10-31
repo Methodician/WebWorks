@@ -1,3 +1,4 @@
+import { DataImportComponent } from './components/data-import/data-import.component';
 import { DataManipulationComponent } from './components/data-manipulation/data-manipulation.component';
 import { MapComponent } from './components/map/map.component';
 import { LoginComponent } from './components/login/login.component';
@@ -6,6 +7,10 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
+    {
+        path: 'import',
+        component: DataImportComponent
+    },
     {
         path: 'data',
         component: DataManipulationComponent

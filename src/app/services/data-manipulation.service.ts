@@ -17,6 +17,12 @@ export class DataManipulationService {
     return companiesRef.doc(companyId);
   }
 
+  getFeaturesForCompany(companyId: string) {
+    let companyRef = this.getCompanyById(companyId);
+    let featuresRef = companyRef.collection('features');
+    return featuresRef;
+  }
+
   getFeaturesForClient(clientId: number) {
     return this.fs.collection('features', ref => ref.where('ClientId', '==', clientId));
   }

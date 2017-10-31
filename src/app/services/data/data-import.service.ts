@@ -55,15 +55,25 @@ export class DataImportService {
   }
 
   uploadMaterials() {
-    let matRef = this.getMaterials();
+    //let matRef = this.getMaterials();
     for (let mat of material.material) {
-      matRef.add(mat);
+      console.log(mat);
+      //matRef.add(mat);
     }
     alert('all materials added');
+  }
+
+  filterMatsByFeature(featureGUID: string) {
+    return material.material.filter(
+      mat =>
+        mat.FeatureGUID.toUpperCase() == featureGUID.toUpperCase()
+    );
   }
 
   getMaterials() {
     return this.db.collection('materials');
   }
+
+
 
 }
