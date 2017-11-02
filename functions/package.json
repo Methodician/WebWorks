@@ -2,15 +2,20 @@
   "name": "functions",
   "description": "Cloud Functions for Firebase",
   "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
     "serve": "firebase serve --only functions",
     "shell": "firebase experimental:functions:shell",
     "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
+    "deploy": "tsc && firebase deploy --only functions",
     "logs": "firebase functions:log"
   },
   "dependencies": {
     "firebase-admin": "~5.4.2",
     "firebase-functions": "^0.7.1"
   },
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "typescript": "^2.6.1"
+  }
 }
