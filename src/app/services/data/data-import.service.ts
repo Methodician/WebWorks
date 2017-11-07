@@ -30,6 +30,10 @@ export class DataImportService {
     return this.db.collection('companies');
   }
 
+  refFeature103JSON() {
+    return features103.features103;
+  }
+
   uploadFeatures103() {
     let featRef = this.getFeatures();
     for (let feat of features103.features103) {

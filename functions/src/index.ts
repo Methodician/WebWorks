@@ -1,9 +1,15 @@
-//const functions = require('firebase-functions');
+import * as pako from 'pako';
 import * as functions from 'firebase-functions';
 
-//const admin = require('firebase-admin');
 import * as admin from 'firebase-admin';
 admin.initializeApp(functions.config().firebase);
+
+export const mwAcadImport = functions.https.onRequest(async (req, res) => {
+  const zip = req.body;
+  const json = pako.deflate(zip);
+  console.log(json);
+  res.send(json);
+});
 
 export const addMessage = functions.https.onRequest(async (req, res) => {
   const original = req.query.text;

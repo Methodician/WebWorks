@@ -36,11 +36,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-//const functions = require('firebase-functions');
+var pako = require("pako");
 var functions = require("firebase-functions");
-//const admin = require('firebase-admin');
 var admin = require("firebase-admin");
 admin.initializeApp(functions.config().firebase);
+exports.mwAcadImport = functions.https.onRequest(function (req, res) { return __awaiter(_this, void 0, void 0, function () {
+    var zip, json;
+    return __generator(this, function (_a) {
+        zip = req.body;
+        json = pako.deflate(zip);
+        console.log(json);
+        res.send(json);
+        return [2 /*return*/];
+    });
+}); });
 exports.addMessage = functions.https.onRequest(function (req, res) { return __awaiter(_this, void 0, void 0, function () {
     var original, snapshot;
     return __generator(this, function (_a) {

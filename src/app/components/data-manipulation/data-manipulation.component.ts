@@ -1,5 +1,8 @@
 import { DataManipulationService } from './../../services/data-manipulation.service';
 import { Component, OnInit } from '@angular/core';
+import { DataImportService } from "./../../services/data/data-import.service";
+//import * as pako from 'pako';
+//import * as jsZip from 'jszip';
 
 @Component({
   selector: 'app-data-manipulation',
@@ -9,10 +12,17 @@ import { Component, OnInit } from '@angular/core';
 export class DataManipulationComponent implements OnInit {
 
   data: any;
+  rawData: any;
 
-  constructor(private dataSvc: DataManipulationService) { }
+  constructor(private dataSvc: DataManipulationService, private importSvc: DataImportService) { }
 
   ngOnInit() {
+    this.rawData = this.importSvc.refFeature103JSON;
+  }
+
+  fileSelected($event) {
+    let file = $event.target.files[0];
+    this.rawData = file;
   }
 
   getData() {
