@@ -9,16 +9,16 @@ import { HttpModule } from '@angular/http';
 
 // Angular Material stuff
 
-// animation support for  angular material components
+// animation support for AngularMaterial components
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import line for all of the angular components
+// import line for all of the AngularMaterial components
 import { MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, MatInputModule, MatFormFieldModule, MatSelectModule } from '@angular/material';
 
 
 
 
 import { AppComponent } from './app.component';
-import { AgmCoreModule } from '@agm/core';
+//import { AgmCoreModule } from '@agm/core';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -30,6 +30,8 @@ import { LoginComponent } from './components/login/login.component';
 import { UserService } from "./services/user/user.service";
 import { DataImportComponent } from './components/data-import/data-import.component';
 import { DataManipulationComponent } from './components/data-manipulation/data-manipulation.component';
+import { LeafletMapComponent } from './components/leaflet-map/leaflet-map.component';
+import { MapService } from "./services/map/map.service";
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { DataManipulationComponent } from './components/data-manipulation/data-m
     RegisterComponent,
     LoginComponent,
     DataImportComponent,
-    DataManipulationComponent
+    DataManipulationComponent,
+    LeafletMapComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,7 @@ import { DataManipulationComponent } from './components/data-manipulation/data-m
     ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
-    AgmCoreModule.forRoot({ apiKey: 'AIzaSyC1a8GbePUKUQqhFtXKMG3hQpRGhaa3Liw' }),
+    //AgmCoreModule.forRoot({ apiKey: 'AIzaSyC1a8GbePUKUQqhFtXKMG3hQpRGhaa3Liw' }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
@@ -65,6 +68,7 @@ import { DataManipulationComponent } from './components/data-manipulation/data-m
   providers: [
     AuthService,
     UserService,
+    MapService,
     DataImportService,
     DataManipulationService
   ],
