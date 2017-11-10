@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 
+import {initializeMap} from './js/map.component.js';
+
 //import { LeafletMapComponent } from '../leaflet-map/leaflet-map.component';
-import * as L from 'leaflet';
-import * as esri from 'esri-leaflet';
+// import * as L from 'leaflet';
+// import * as esri from 'esri-leaflet';
 // Should consider using "leaflet-plugins" instead...
 //import * as bing from 'leaflet-bing-layer';
 
@@ -20,11 +22,12 @@ export class MapComponent implements OnInit {
   constructor(private _chgDetector: ChangeDetectorRef) { }
 
   ngOnInit() {
-    let map = L.map('map').setView([45.523062, -122.676482], 13);
+    initializeMap();
+    // let map = L.map('map').setView([45.523062, -122.676482], 13);
 
-    let esriLayer = esri.basemapLayer('Gray').addTo(map);
-    //let bingLayer = L.tileLayer.bing('AtAl8oo3GIVsAsSBK3Uk9ZGFaevt1NWlPVGZjzlCRmyk8_kXwIaDQOd7heinQRIS');
-    esriLayer.addTo(map);
+    // let esriLayer = esri.basemapLayer('Gray').addTo(map);
+    // //let bingLayer = L.tileLayer.bing('AtAl8oo3GIVsAsSBK3Uk9ZGFaevt1NWlPVGZjzlCRmyk8_kXwIaDQOd7heinQRIS');
+    // esriLayer.addTo(map);
   }
 
 

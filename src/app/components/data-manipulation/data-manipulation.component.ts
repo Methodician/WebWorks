@@ -17,7 +17,7 @@ export class DataManipulationComponent implements OnInit {
   constructor(private dataSvc: DataManipulationService, private importSvc: DataImportService) { }
 
   ngOnInit() {
-    this.rawData = this.importSvc.refFeature103JSON;
+    //this.rawData = this.importSvc.refFeature103JSON;
   }
 
   fileSelected($event) {
