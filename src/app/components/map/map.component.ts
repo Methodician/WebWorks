@@ -3,7 +3,8 @@ import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 //import { LeafletMapComponent } from '../leaflet-map/leaflet-map.component';
 import * as L from 'leaflet';
 import * as esri from 'esri-leaflet';
-import * as bing from 'leaflet-bing-layer';
+// Should consider using "leaflet-plugins" instead...
+//import * as bing from 'leaflet-bing-layer';
 
 @Component({
   selector: 'map',
@@ -22,7 +23,7 @@ export class MapComponent implements OnInit {
     let map = L.map('map').setView([45.523062, -122.676482], 13);
 
     let esriLayer = esri.basemapLayer('Gray').addTo(map);
-    let bingLayer = L.tileLayer.bing('AtAl8oo3GIVsAsSBK3Uk9ZGFaevt1NWlPVGZjzlCRmyk8_kXwIaDQOd7heinQRIS');
+    //let bingLayer = L.tileLayer.bing('AtAl8oo3GIVsAsSBK3Uk9ZGFaevt1NWlPVGZjzlCRmyk8_kXwIaDQOd7heinQRIS');
     esriLayer.addTo(map);
   }
 
