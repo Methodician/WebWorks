@@ -32,6 +32,10 @@ export class DataImportService {
     return this.db.collection('features');
   }
 
+  getTestCompanies2() {
+    return this.db.collection('testCompanies2');
+  }
+
   getTestCompanies() {
     return this.db.collection('testCompanies');
   }

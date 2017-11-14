@@ -1,6 +1,6 @@
 import { DataManipulationService } from './../../services/data-manipulation.service';
 import { DataImportService } from './../../services/data/data-import.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 
 @Component({
   selector: 'data-import',
@@ -20,7 +20,8 @@ export class DataImportComponent implements OnInit {
 
   constructor(
     private dataSvc: DataImportService,
-    private manipSvc: DataManipulationService
+    private manipSvc: DataManipulationService,
+    private zone: NgZone
   ) { }
 
   ngOnInit() {
@@ -28,37 +29,55 @@ export class DataImportComponent implements OnInit {
   }
 
   addTestOutput() {
-    let testRef = this.dataSvc.getTestCompanies();
-    // let itemCounter = 0;
+    let companiesRef = this.dataSvc.getTestCompanies2();
+    let itemCounter = 0;
     for (let item of this.jsondata) {
-      // if (itemCounter < 11) {
-      let feature = {
-        FeatureGuid: item.FeatureGuid || null,
-        FeatureName: item.FeatureName || null,
-        FeatureClass: item.FeatureClass || null,
-        FeatureTypeCode: item.FeatureTypeCode || null,
-        FeatureTypeName: item.FeatureTypeName || null,
-        Circuit: item.Circuit || null,
-        Phase: item.Phase || null,
-        MapSpan: item.MapSpan || null,
-        AssociatedFeatureName: item.AssociatedFeatureName || null,
-        ClassConnectable: item.ClassConnectable || null,
-        Block: item.Block || null,
-        Geometry: item.Geometry.Geometry || null,
-        ClientId: item.ClientId || null,
-      }
-
-      let featureCollection = testRef.doc(this.clients[feature.ClientId]).collection('features');
-      featureCollection.add(feature).then(docSnap => {
-        if (item.Materials.length > 0) {
-          let matCollection = docSnap.collection('materials');
-          for (let mat of item.Materials) {
-            matCollection.add(mat);
-          }
+      if (itemCounter < 101) {
+        let feature = {
+          FeatureGuid: item.FeatureGuid || null,
+          FeatureName: item.FeatureName || null,
+          FeatureClass: item.FeatureClass || null,
+          FeatureTypeCode: item.FeatureTypeCode || null,
+          FeatureTypeName: item.FeatureTypeName || null,
+          Circuit: item.Circuit || null,
+          Phase: item.Phase || null,
+          MapSpan: item.MapSpan || null,
+          AssociatedFeatureName: item.AssociatedFeatureName || null,
+          ClassConnectable: item.ClassConnectable || null,
+          Block: item.Block || null,
+          Geometry: item.Geometry.Geometry || null,
+          ClientId: item.ClientId || null,
         }
-      });
-      // itemCounter++;
-      // }
+
+
+        //  Forces some items in with materials (was mostly getting empty ones)
+        if (item.Materials.length > 0) {
+          //  Creates features using FeatureGUID
+          let featureDoc = companiesRef.doc(this.clients[feature.ClientId]).collection('features').doc(feature.FeatureGuid);
+          featureDoc.set(feature).then(() => {
+            if (item.Materials.length > 0) {
+              let matCollection = featureDoc.collection('materials');
+              for (let mat of item.Materials) {
+                matCollection.add(mat);
+              }
+            }
+          });
+        }
+
+
+        // //  Creates features using Firebase IDs:
+        // let featureCollection = testRef.doc(this.clients[feature.ClientId]).collection('features');
+        // featureCollection.add(feature).then(docSnap => {
+        //   if (item.Materials.length > 0) {
+        //     let matCollection = docSnap.collection('materials');
+        //     for (let mat of item.Materials) {
+        //       matCollection.add(mat);
+        //     }
+        //   }
+        // });
+
+        itemCounter++;
+      }
     }
   }
 
