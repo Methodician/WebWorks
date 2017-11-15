@@ -19,8 +19,6 @@ export class UserService {
     })
   }
 
-
-
   getCompanies() {
     return this.fs.collection('companies');
   }

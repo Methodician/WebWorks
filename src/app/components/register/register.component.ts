@@ -4,7 +4,7 @@ import { AuthService } from './../../services/auth/auth.service';
 import { AuthInfo } from './../../services/auth/auth-info';
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, } from '@angular/forms';
-import { validateEmail } from "app/components/validators/validateEmail";
+import { validateEmail } from "app/shared/validators/validateEmail";
 
 @Component({
   selector: 'app-register',

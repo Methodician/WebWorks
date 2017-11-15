@@ -5,8 +5,13 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FeatureTestComponent } from 'app/components/feature-test/feature-test.component';
 
 const routes: Routes = [
+    {
+        path: 'featuretest',
+        component: FeatureTestComponent
+    },
     {
         path: 'import',
         component: DataImportComponent

@@ -28,6 +28,10 @@ export class DataImportComponent implements OnInit {
     this.jsondata = this.dataSvc.pullOutputFromJson();
   }
 
+  setTestCompanyFields() {
+    this.dataSvc.setTestCompanyFields();
+  }
+
   addTestOutput() {
     let companiesRef = this.dataSvc.getTestCompanies2();
     let itemCounter = 0;

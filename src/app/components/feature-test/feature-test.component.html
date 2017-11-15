@@ -1,0 +1,28 @@
+<div style="margin-left: 100px">
+  <button (click)="getTestCompaniesByName(companyName.value)">getTestCompaniesByName</button>
+  <input type="text" #companyName>
+  <br>
+  <button (click)="getTestCompanyByCompanyGuid(companyGuid.value)">getTestCompanyByCompanyGuid</button>
+  <input type="text" #companyGuid>
+  <br>
+  <button (click)="getTestCompanyByClientId(clientId.value)">getTestCompanyByClientId</button>
+  <input type="number" #clientId>
+  <br>
+  <button (click)="getTestCompanyById(companyId.value)">getTestCompanyById</button>
+  <input type="text" #companyId>
+  <br>
+  <button (click)="getFeatureById(featureId.value)">getFeatureById</button>
+  <input type="text" #featureId>
+  <br>
+  <button (click)="getMaterialsByFeatureId(matFeatureId.value)">getMaterialsByFeatureId</button>
+  <input type="text" #matFeatureId>
+  <br>
+</div>
+
+<pre>
+  {{ testData | async | json }}
+</pre>
+<pre>
+  <h3>Logged in user company:</h3>
+  {{ loggedInUserCompany | json }}
+</pre>

@@ -58,6 +58,25 @@ export class DataImportService {
   //   });
   // }
 
+  setTestCompanyFields() {
+    let companyRef = this.getTestCompanies();
+    companyRef.doc('6g33J6106LS8kyOrK4Tv').set({
+      companyGuid: "e405596a-630d-44d4-a02f-a979b27269a3",
+      clientId: 103,
+      name: "TerraSpatial"
+    })
+      .then(() => alert('success'))
+      .catch(err => alert(err));
+
+    companyRef.doc('qhFRb5p7vuYXMe5AzXmo').set({
+      companyGuid: "9366dbea-832c-4fcc-b2b2-f9fcca40a6ca",
+      clientId: 123,
+      name: "Kodiak"
+    })
+      .then(() => alert('success'))
+      .catch(err => alert(err));
+  }
+
 
 
   // refFeature103JSON() {

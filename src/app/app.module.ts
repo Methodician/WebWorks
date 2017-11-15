@@ -32,6 +32,8 @@ import { MatToolbarModule, MatButtonModule, MatMenuModule, MatIconModule, MatInp
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { FeatureTestComponent } from './components/feature-test/feature-test.component';
+import { FeatureService } from 'app/services/map/feature.service';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     LoginComponent,
     DataImportComponent,
     DataManipulationComponent,
+    FeatureTestComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +70,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     AuthService,
     UserService,
     MapService,
+    FeatureService,
     DataImportService,
     DataManipulationService
   ],
